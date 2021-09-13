@@ -1,40 +1,86 @@
-function getQuadraticRoots(a, b, c) {
+getFirst = (arr) => {
+  let [first] = arr;
+  return first;
+};
 
-  // Через тернарый оператор
-  // const d = Number(b) ** 2 - 4 * Number(a) * Number(c);
+getFifth = (arr) => {
+  let [, , , , five] = arr;
+  return five;
+};
 
-  // const x1 = (-b + Math.sqrt(d)) / (2 * a);
-  // const x2 = (-b - Math.sqrt(d)) / (2 * a);
+getSecondAndThird = (arr) => {
+  let [, second, third, ,] = arr;
+  return `${second} ${third}`;
+};
 
-  // const x = -b / (2 * a);
+// console.log(getFirst([1]));
 
-  // return isNaN(a) || isNaN(b) || isNaN(c)
-  //   ? NaN
-  //   : d > 0
-  //   ? { x1, x2 }
-  //   : d === 0
-  //   ? x
-  //   : null;
+// console.log(getFifth([, , , , 5]));
 
-  // Через if
-  if (isNaN(a) || isNaN(b) || isNaN(c)) {
-    return NaN;
-  }
+// console.log(getSecondAndThird([, 2, 3, ,]));
 
-  const d = Number(b) ** 2 - 4 * Number(a) * Number(c);
+const obj = {
+  name: "Tolya",
+  surname: "Homyakov",
+  email: "flyingcatsad@gmail.com",
 
-  if (d > 0) {
-    const x1 = (-b + Math.sqrt(d)) / (2 * a);
-    const x2 = (-b - Math.sqrt(d)) / (2 * a);
+  phones: {
+    home: "+38095623523",
+    mobile: "+38032423523",
+  },
 
-    return { x1, x2 };
-  }
+  address: {
+    street: {
+      name: "Soborniy",
+      number: "230",
+    },
 
-  if (d === 0) {
-    const x = -b / (2 * a);
+    city: "Zaporozhye",
+  },
+};
 
-    return x;
-  }
+getUserEmail = () => {
+  let { email } = obj;
 
-  return null;
-}
+  return email;
+};
+
+getUserFullName = () => {
+  let { name, surname } = obj;
+
+  return `${name} ${surname}`;
+};
+
+getUserPhones = () => {
+  let {
+    phones: { home, mobile },
+  } = obj;
+
+  return { home, mobile };
+};
+
+getUserAddress = () => {
+  let address = { ...obj.address };
+
+  return obj.address !== undefined ? address : null;
+};
+
+getUserStreetName = () => {
+  let {
+    address: {
+      street: { name },
+    },
+  } = obj;
+
+  return obj.address.street !== undefined ? name : null;
+};
+
+console.log(getUserEmail());
+
+console.log(getUserFullName());
+
+console.log(getUserPhones());
+
+console.log(getUserAddress());
+
+console.log(getUserStreetName());
