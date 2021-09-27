@@ -189,3 +189,95 @@ function exercise() {
 
   return alert("Поздравляем пример решен!");
 }
+
+/*
+? Таски на условия:
+*/
+/*
+!спросить у пользователя (prompt) число и 
+!ответить (alert) 'Верно' если число равно 10.
+*/
+function trueTen() {
+  if (Number(prompt("Напишите число 10")) === 10) {
+    alert("True");
+  }
+}
+
+/*
+!Если число из предыдущего задания
+!больше 5 И меньше 15 то вывести 'привет'
+*/
+function hello() {
+  let num = Number(prompt("Напишите число 5 < num < 15"));
+  if (num > 5 && num < 15) {
+    alert("Hello");
+  }
+}
+
+/*
+!Если число из предыдущего задания больше 5 ИЛИ меньше 10
+!то вывести 'Всегда true'
+*/
+function alwaysTrue() {
+  let num = Number(prompt("Write any number"));
+  if (num > 5 || num < 10) {
+    alert("Always True");
+  }
+}
+
+/*
+!спросить у пользователя (функция prompt) ответ на один общеизвестный факт на ваш
+!вкус.
+!например, “как называется наша планета?”, "какого цвета трава?"
+!и высветить ему сообщение правильно он ответил или нет.
+*/
+function planet() {
+  let userAnswer = prompt("Our planet name?");
+
+  while (userAnswer !== "Earth" && userAnswer !== "earth") {
+    alert("Wrong. Try again");
+    userAnswer = prompt("Our planet name?");
+  }
+
+  alert("Absolutely right!");
+}
+
+/*
+!вычислить стоимость заказа пиццы. известно что данный вид пиццы за 100 грамм
+!стоит 30 грн.
+!скидка 3% предоставляется если вес заказ больше 1 кг
+!вывести сколько стоит со скидкой эта пицца если вес 1.2 кг
+*/
+function pizza() {
+  const initialPrice = 30;
+  let price = 0;
+  do {
+    weight = Number(prompt("Пиццу какиого веса вы хотите?"));
+  } while (isNaN(weight));
+
+  let discountPrice = 0;
+
+  price = weight * 10 * initialPrice;
+
+  if (weight > 1) {
+    discountPrice = price - Math.round((3 / 100) * price);
+  }
+
+  return discountPrice;
+}
+
+/*
+!проверить является ли введенное пользователем число простым (делиться только на
+!себя и на единицу)
+*/
+function simple() {
+  do {
+    num = Number(prompt("Введите число"));
+  } while (isNaN(num));
+
+  if (num === 2 || num % 2 === 1 && num % num === 0) {
+    alert("Это простое число");
+  } else {
+    alert("Это не простое число");
+  }
+}
